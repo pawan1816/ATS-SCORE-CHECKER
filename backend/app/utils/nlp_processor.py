@@ -4,8 +4,19 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 nlp = spacy.load("en_core_web_sm")
 
+def extract_keywords(text):
+    """Extract keywords from text using spaCy"""
+    doc = nlp(text)
+    return [token.text.lower() for token in doc if not token.is_stop and token.is_alpha]
+
+def calculate_similarity(resume, job_desc):
+    """Calculate similarity score between resume and job description"""
+    vectorizer = TfidfVectorizer()
+    vectors = vectorizer.fit_transform([resume, job_desc])
+    return cosine_similarity(vectors[0], vectors[1])[0][0] * 100  # Convert to percentage
+
 def calculate_ats_score(resume, job_desc):
-    # Your existing scoring logic
+    """Calculate ATS score and provide analysis"""
     score = calculate_similarity(resume, job_desc)
     resume_keywords = set(extract_keywords(resume))
     job_keywords = set(extract_keywords(job_desc))

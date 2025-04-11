@@ -52,13 +52,13 @@ Command to run the code
 python run.py
 
 
- pip list //  output shows all installed Python packages in your virtual environment.
+pip list //  output shows all installed Python packages in your virtual environment.
 
 
- pip list 
+pip list 
 
 
 
- curl -X POST http://localhost:5000/check-score \
--H "Content-Type: application/json" \
--d '{"resume":"Python developer with Flask experience", "job_description":"We need Python and Flask skills"}'
+curl.exe -X POST http://localhost:5000/check-score `
+-H "Content-Type: application/json" `
+-d '{\"resume\":\"Python developer with Flask experience\", \"job_description\":\"We need Python and Flask skills\"}'
