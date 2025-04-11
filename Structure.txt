@@ -1,0 +1,28 @@
+
+ats-score-checker/
+│
+├── client/                  # React.js Frontend
+│   ├── public/
+│   ├── src/
+│   │   ├── components/      # (Header, UploadForm, Results)
+│   │   ├── pages/          # (Home, Dashboard)
+│   │   ├── services/       # API calls (axios)
+│   │   ├── App.js
+│   │   └── index.js
+│   └── package.json
+│
+├── server/                  # Python Flask Backend
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── controllers/    # (score_controller.py)
+│   │   ├── models/         # (ResumeModel.py)
+│   │   ├── routes/         # (api.py)
+│   │   └── utils/          # (nlp_processor.py)
+│   ├── requirements.txt
+│   └── run.py
+│
+├── ml_processing/           # NLP & ML Scripts
+│   ├── nlp_utils.py        # (Keyword extraction, similarity)
+│   └── train_model.py      # (Optional ML model)
+│
+└── README.md
