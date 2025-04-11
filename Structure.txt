@@ -26,3 +26,39 @@ ats-score-checker/
 │   └── train_model.py      # (Optional ML model)
 │
 └── README.md
+
+
+
+ats-score-checker/
+├── backend/
+│   ├── venv/               (Auto-generated when you run `python -m venv venv`)
+│   ├── app/
+│   │   ├── __init__.py     (Flask app initialization)
+│   │   ├── routes.py       (API endpoints)
+│   │   └── utils/
+│   │       └── nlp_processor.py  (NLP scoring logic)
+│   ├── requirements.txt    (Python dependencies)
+│   ├── run.py             (Entry point to start Flask)
+│   └── .env               (Environment variables)
+└── frontend/              (React.js files - not shown in detail)
+
+
+
+
+Command to run the code
+
+.\venv\Scripts\activate
+
+python run.py
+
+
+ pip list //  output shows all installed Python packages in your virtual environment.
+
+
+ pip list 
+
+
+
+ curl -X POST http://localhost:5000/check-score \
+-H "Content-Type: application/json" \
+-d '{"resume":"Python developer with Flask experience", "job_description":"We need Python and Flask skills"}'
