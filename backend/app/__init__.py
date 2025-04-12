@@ -1,7 +1,14 @@
 from flask import Flask
+from flask_cors import CORS
 
-app = Flask(__name__)  # This creates the Flask app instance
+app = Flask(__name__)
 
-# Import routes AFTER creating app to avoid circular imports
-from app.routes import api
-app.register_blueprint(api)
+# Configure CORS properly
+CORS(app, resources={
+    r"/check-score": {
+        "origins": ["http://localhost:3000"],
+        "methods": ["POST", "OPTIONS"],
+        "allow_headers": ["Content-Type"]
+    }
+})
+

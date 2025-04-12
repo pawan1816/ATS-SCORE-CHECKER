@@ -1,9 +1,18 @@
-from flask import Flask
-app = Flask(__name__)
+from app.utils.nlp_processor import calculate_ats_score
 
-@app.route('/')
-def home():
-    return "Server is working!"  # Simple test route
+# Test data
+resume = """
+Python developer with 5 years experience. 
+Skills: AWS, Flask, machine learning basics.
+"""
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+job_desc = """
+Seeking Python developer with:
+- Cloud platforms (AWS/Azure)
+- Web frameworks (Flask/Django)
+- Machine learning basics
+"""
+
+score, analysis = calculate_ats_score(resume, job_desc)
+print(f"Optimized Score: {score}%")
+print("Missing:", analysis['missing_keywords'])
